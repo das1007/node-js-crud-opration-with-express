@@ -21,6 +21,7 @@ mysqlConnection.connect((err) => {
 
 app.listen(3000, () => console.log("Node Server Port : 3000"));
 
+
 //Get All User 
 app.get('/user', (req, res) => {
     mysqlConnection.query("select * from tbl_user", (err, rows, fields) => {
@@ -30,6 +31,7 @@ app.get('/user', (req, res) => {
             console.log(err);
     });
 })
+
 
 //Get An User 
 app.get('/user/:id', (req, res) => {
@@ -41,6 +43,7 @@ app.get('/user/:id', (req, res) => {
     });
 })
 
+
 //Delete An User 
 app.delete('/user/:id', (req, res) => {
     mysqlConnection.query("DELETE from tbl_user where user_id = ?", [req.params.id], (err, rows, fields) => {
@@ -50,6 +53,7 @@ app.delete('/user/:id', (req, res) => {
             console.log(err);
     });
 })
+
 
 //Insert User 
 app.post('/user', (req, res) => {
@@ -62,7 +66,6 @@ app.post('/user', (req, res) => {
             console.log(err);
     });
 })
-
 
 //Update User 
 app.put('/user', (req, res) => {
